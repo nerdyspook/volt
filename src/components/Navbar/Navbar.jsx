@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
     FaSearch,
     FaUser,
@@ -8,23 +8,25 @@ import {
     FaBars,
     FaTimes,
 } from "react-icons/fa";
+import { useScrollToChangeColor } from "../../hooks/useScrollToChangeColor";
 import "./Navbar.scss";
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
     const showMenu = () => setMenu(!menu);
 
-    const scrollHeader = () => {
-        const header = document.querySelector(".header");
-
-        window.scrollY >= 50
-            ? header.classList.add("scroll-header")
-            : header.classList.remove("scroll-header");
-    };
+    const [navItemColor, setNavItemColor] = useState("#f8fafc");
+    const location = useLocation();
 
     useEffect(() => {
-        window.addEventListener("scroll", scrollHeader);
-    }, []);
+        if (window.location.pathname !== "/") {
+            setNavItemColor("#2d3748");
+        } else {
+            setNavItemColor("#cbd5e1");
+        }
+    }, [location]);
+
+    useScrollToChangeColor();
 
     return (
         <header className="header" id="header">
@@ -34,8 +36,13 @@ const Navbar = () => {
                         className="nav__toggle icons"
                         id="nav-toggle"
                         onClick={showMenu}
+                        style={{ color: navItemColor }}
                     />
-                    <Link to="/" className="nav__logo">
+                    <Link
+                        to="/"
+                        className="nav__logo"
+                        style={{ color: navItemColor }}
+                    >
                         Volt
                     </Link>
                 </div>
@@ -48,7 +55,7 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={"/"} className="nav__link">
+                            <NavLink to={"/products"} className="nav__link">
                                 Products
                             </NavLink>
                         </li>
@@ -69,13 +76,22 @@ const Navbar = () => {
 
                 <div className="nav_btns">
                     <NavLink to={"/"}>
-                        <FaUser className="user icons" />
+                        <FaUser
+                            className="user icons"
+                            style={{ color: navItemColor }}
+                        />
                     </NavLink>
                     <NavLink to={"/"}>
-                        <FaHeart className="heart icons" />
+                        <FaHeart
+                            className="heart icons"
+                            style={{ color: navItemColor }}
+                        />
                     </NavLink>
                     <NavLink to={"/"}>
-                        <FaShoppingCart className="nav_cart icons" />
+                        <FaShoppingCart
+                            className="nav_cart icons"
+                            style={{ color: navItemColor }}
+                        />
                     </NavLink>
                 </div>
             </div>

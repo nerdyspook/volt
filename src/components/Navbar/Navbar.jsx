@@ -8,6 +8,7 @@ import {
     FaBars,
     FaTimes,
 } from "react-icons/fa";
+import { useScrollToChangeColor } from "../../hooks/useScrollToChangeColor";
 import "./Navbar.scss";
 
 const Navbar = () => {
@@ -17,14 +18,6 @@ const Navbar = () => {
     const [navItemColor, setNavItemColor] = useState("#f8fafc");
     const location = useLocation();
 
-    const scrollHeader = () => {
-        const header = document.querySelector(".header");
-
-        window.scrollY >= 50
-            ? header.classList.add("scroll-header")
-            : header.classList.remove("scroll-header");
-    };
-
     useEffect(() => {
         if (window.location.pathname !== "/") {
             setNavItemColor("#2d3748");
@@ -33,9 +26,7 @@ const Navbar = () => {
         }
     }, [location]);
 
-    useEffect(() => {
-        window.addEventListener("scroll", scrollHeader);
-    }, []);
+    useScrollToChangeColor();
 
     return (
         <header className="header" id="header">

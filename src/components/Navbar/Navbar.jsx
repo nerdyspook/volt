@@ -81,13 +81,13 @@ const Navbar = () => {
                             style={{ color: navItemColor }}
                         />
                     </NavLink>
-                    <NavLink to={"/"}>
+                    <NavLink to={"/wishlist"}>
                         <FaHeart
                             className="heart icons"
                             style={{ color: navItemColor }}
                         />
                     </NavLink>
-                    <NavLink to={"/"}>
+                    <NavLink to={"/cart"}>
                         <FaShoppingCart
                             className="nav_cart icons"
                             style={{ color: navItemColor }}

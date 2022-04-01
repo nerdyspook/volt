@@ -5,6 +5,9 @@ import "./Products.scss";
 import Product from "../../components/Product/Product";
 
 const Products = () => {
+    const brands = ["Nike", "Adidas", "Puma", "Vans"];
+    const genders = ["Men", "Women", "Kids"];
+
     return (
         <div className="container">
             <div className="head">Products</div>
@@ -15,54 +18,30 @@ const Products = () => {
                     </div>
                     <div className="subtitle">Gender</div>
                     <ul>
-                        <li>
-                            <input
-                                type="radio"
-                                id="men"
-                                name="gender"
-                                value="men"
-                            />
-                            <label htmlFor="men">Men</label>
-                        </li>
-                        <li>
-                            {" "}
-                            <input
-                                type="radio"
-                                id="women"
-                                name="gender"
-                                value="women"
-                            />
-                            <label htmlFor="women">Women</label>
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                id="kids"
-                                name="gender"
-                                value="kids"
-                            />
-                            <label htmlFor="kids">Kids</label>
-                        </li>
+                        {genders.map((gender, index) => (
+                            <li key={index}>
+                                <input
+                                    type="radio"
+                                    id={`${gender.toLowerCase()}`}
+                                    name="gender"
+                                    value={`${gender.toLowerCase()}`}
+                                />
+                                <label htmlFor={`${gender.toLowerCase()}`}>
+                                    {gender}
+                                </label>
+                            </li>
+                        ))}
                     </ul>
 
                     <div className="subtitle">Rating</div>
                     <div className="price_range">
                         <div className="range">
-                            <p>
-                                1<sup>⭐</sup>
-                            </p>
-                            <p>
-                                2<sup>⭐</sup>
-                            </p>
-                            <p>
-                                3<sup>⭐</sup>
-                            </p>
-                            <p>
-                                4<sup>⭐</sup>
-                            </p>
-                            <p>
-                                5<sup>⭐</sup>
-                            </p>
+                            {[1, 2, 3, 4, 5].map((item) => (
+                                <p key={item}>
+                                    {item}
+                                    <sup>⭐</sup>
+                                </p>
+                            ))}
                         </div>
                         <div className="slider">
                             <input
@@ -70,46 +49,24 @@ const Products = () => {
                                 className="slider"
                                 min={0}
                                 max={4}
-                                valuerange
                             />
                         </div>
                     </div>
 
                     <div className="subtitle">Brand</div>
                     <ul>
-                        <li>
-                            <input
-                                type="checkbox"
-                                id="option1"
-                                name="option1"
-                            />
-                            <label htmlFor="option1">Nike</label>
-                        </li>
-                        <li>
-                            <input
-                                type="checkbox"
-                                id="option2"
-                                name="option2"
-                            />
-                            <label htmlFor="option2">Adidas</label>
-                        </li>
-                        <li>
-                            <input
-                                type="checkbox"
-                                id="option3"
-                                name="option3"
-                            />
-                            <label htmlFor="option3">Puma</label>
-                        </li>
-                        <li>
-                            {" "}
-                            <input
-                                type="checkbox"
-                                id="option4"
-                                name="option4"
-                            />
-                            <label htmlFor="option4">Vans</label>
-                        </li>
+                        {brands.map((brand, index) => (
+                            <li key={index}>
+                                <input
+                                    type="checkbox"
+                                    id={`option${index + 1}`}
+                                    name={`option${index + 1}`}
+                                />
+                                <label htmlFor={`option${index + 1}`}>
+                                    {brand}
+                                </label>
+                            </li>
+                        ))}
                     </ul>
                 </section>
 

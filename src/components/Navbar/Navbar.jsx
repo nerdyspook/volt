@@ -75,7 +75,7 @@ const Navbar = () => {
                 </nav>
 
                 <div className="nav_btns">
-                    <NavLink to={"/"}>
+                    <NavLink to={"/login"}>
                         <FaUser
                             className="user icons"
                             style={{ color: navItemColor }}

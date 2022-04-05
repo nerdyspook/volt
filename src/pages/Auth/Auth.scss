@@ -43,6 +43,7 @@
 
         .right {
             height: calc(100vh - 16rem);
+            margin-top: 0.25rem;
 
             .copy {
                 color: var(--text-color);
@@ -70,6 +71,16 @@
                     font-size: var(--small-font-size);
                 }
 
+                .fullname__container {
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    input {
+                        width: 98%;
+                    }
+                }
+
                 .signup__container-cta {
                     display: flex;
                     gap: 1rem;
@@ -93,6 +104,9 @@
                         gap: 1rem;
                         align-items: center;
                     }
+                    .forgot {
+                        font-size: var(--small-font-size);
+                    }
                     label,
                     input {
                         margin: 0;
@@ -100,7 +114,10 @@
                     }
                 }
 
-                button {
+                button,
+                .login__btn,
+                .signup__btn {
+                    text-align: center;
                     color: var(--white-color);
                     background-color: var(--title-color);
                     width: 100%;

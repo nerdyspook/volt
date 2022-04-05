@@ -8,7 +8,7 @@ import {
     FaBars,
     FaTimes,
 } from "react-icons/fa";
-import { useScrollToChangeColor } from "../../hooks/useScrollToChangeColor";
+import { useScrollToChangeColor } from "../../hooks/scroll-to-change";
 import "./Navbar.scss";
 
 const Navbar = () => {

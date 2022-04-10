@@ -6,11 +6,13 @@ export const loadProducts = async (dispatch) => {
             type: "LOAD_PRODUCTS",
         });
 
-        const { data } = await axios.get("/api/products");
-        dispatch({
-            type: "LOAD_PRODUCTS_SECCESS",
-            payload: data.products,
-        });
+        const response = await axios.get("/api/products");
+        if (response.status === 200) {
+            dispatch({
+                type: "LOAD_PRODUCTS_SUCCESS",
+                payload: response.data.products,
+            });
+        }
     } catch (e) {
         dispatch({
             type: "LOAD_FAIL",

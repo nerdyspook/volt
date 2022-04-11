@@ -7,7 +7,6 @@ export const quantityCart = async (
     product
 ) => {
     const newToken = localStorage.getItem("token");
-    console.log(id, quantityIncrementDecrement, product);
 
     try {
         const response = await axios({
@@ -24,7 +23,6 @@ export const quantityCart = async (
                 authorization: newToken,
             },
         });
-        console.log(response);
 
         if (response.status === 200) {
             dispatchCart({

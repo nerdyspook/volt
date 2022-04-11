@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const addWishlist = async (product, dispatchCart) => {
-    console.log(product);
     const newToken = localStorage.getItem("token");
     try {
         const response = await axios({
@@ -12,7 +11,7 @@ export const addWishlist = async (product, dispatchCart) => {
                 authorization: newToken,
             },
         });
-        console.log(response);
+
         if (response.status === 201) {
             dispatchCart({
                 type: "ADD_TO_WISHLIST",

@@ -1,4 +1,3 @@
-// import React, { useEffect, useState } from "react";
 import Product from "../../components/Product/Product";
 import { useCart } from "../../contexts/CartContext";
 import "./Wishlist.scss";

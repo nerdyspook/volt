@@ -11,7 +11,6 @@ const QuantityCounter = ({ product, qty }) => {
         <div className="quantity__counter">
             <button
                 className="decrement"
-                // onClick={() => setCount((prevCount) => prevCount - 1)}
                 onClick={
                     product.qty > 1
                         ? () =>
@@ -26,15 +25,10 @@ const QuantityCounter = ({ product, qty }) => {
             >
                 -
             </button>
-            <div className="quantity__count">
-                {/* {count} */}
-                {qty}
-            </div>
+            <div className="quantity__count">{qty}</div>
             <button
                 className="increment"
-                // onClick={() => setCount((prevCount) => prevCount + 1)}
                 onClick={() => {
-                    console.log(product);
                     quantityCart(
                         product._id,
                         dispatchCart,

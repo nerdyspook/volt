@@ -13,8 +13,10 @@ import { quantityCart } from "../../utilities/quantity-cart";
 const Product = ({ product, id, title, image, details, rating, price }) => {
     const navigate = useNavigate();
 
-    const { stateCart, dispatchCart } = useCart();
-    const { myWishlist, myCart } = stateCart;
+    const {
+        stateCart: { myWishlist, myCart },
+        dispatchCart,
+    } = useCart();
 
     const { stateAuth } = useAuth();
 

@@ -8,7 +8,6 @@ const CartProduct = ({ product }) => {
     const { stateCart, dispatchCart } = useCart();
     const { myWishlist } = stateCart;
     const { _id, id, img, title, details, price, qty } = product;
-    console.log(qty, id, product);
 
     return (
         <div className="card-cart" key={id}>

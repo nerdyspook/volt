@@ -8,8 +8,6 @@ const Cart = () => {
     const { stateCart } = useCart();
     const { myCart } = stateCart;
 
-    console.log(myCart);
-
     const finalPrice = myCart.reduce(
         (acc, curr) => (acc += curr.price * curr.qty),
         0

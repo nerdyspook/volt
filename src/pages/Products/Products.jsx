@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 
-import { products } from "../../fakeData";
-import "./Products.scss";
-import Product from "../../components/Product/Product";
 import { useFilter } from "../../contexts/FilterContext";
 import { getFilteredProducts } from "../../utilities/filter";
+import { ProductReducer } from "../../Reducers/ProductReducer";
+import { loadProducts } from "../../utilities/load-products";
+import Product from "../../components/Product/Product";
+import "./Products.scss";
 
 const Products = () => {
     const [selectedSort, setSelectedSort] = useState("Select an option");
@@ -13,7 +14,18 @@ const Products = () => {
     const { gender, rating, brands } = state;
     const { nike, adidas, puma, vans } = brands;
 
+    const [stateProduct, dispatchProduct] = useReducer(ProductReducer, {
+        loading: false,
+        products: [],
+    });
+
+    const { loading, products } = stateProduct;
+
     const filteredProducts = getFilteredProducts(products, state);
+
+    useEffect(() => {
+        loadProducts(dispatchProduct);
+    }, []);
 
     return (
         <div className="container">
@@ -185,7 +197,9 @@ const Products = () => {
                 <section className="content">
                     {filteredProducts.map((product) => (
                         <Product
-                            key={product.id}
+                            product={product}
+                            key={product._id}
+                            id={product._id}
                             title={product.title}
                             image={product.img}
                             details={product.details}

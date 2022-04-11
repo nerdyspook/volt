@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe1.jfif")}`,
         title: "Nike",
         details: "Nike Air Force 1 '07 LV8'",
@@ -16,7 +16,7 @@ export const products = [
         gender: "men",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe2.jfif")}`,
         title: "Nike",
         details: "Nike Dunk High Retro SE",
@@ -25,7 +25,7 @@ export const products = [
         gender: "men",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe3.jfif")}`,
         title: "Nike",
         details: "Nike Air Force 1 '07 LV8'",
@@ -34,7 +34,7 @@ export const products = [
         gender: "women",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe1.jfif")}`,
         title: "Nike",
         details: "Nike Air Force 1 '07 LV8'",
@@ -43,7 +43,7 @@ export const products = [
         gender: "women",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe2.jfif")}`,
         title: "Nike",
         details: "Nike Dunk High Retro SE",
@@ -52,7 +52,7 @@ export const products = [
         gender: "men",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe3.jfif")}`,
         title: "Nike",
         details: "Nike Air Force 1 '07 LV8'",
@@ -61,7 +61,7 @@ export const products = [
         gender: "men",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe1.jfif")}`,
         title: "Nike",
         details: "Nike Air Force 1 '07 LV8'",
@@ -70,7 +70,7 @@ export const products = [
         gender: "women",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe2.jfif")}`,
         title: "Vans",
         details: "Nike Dunk High Retro SE",
@@ -79,7 +79,7 @@ export const products = [
         gender: "kids",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe3.jfif")}`,
         title: "Vans",
         details: "Nike Air Force 1 '07 LV8'",
@@ -88,7 +88,7 @@ export const products = [
         gender: "kids",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe2.jfif")}`,
         title: "Puma",
         details: "Nike Dunk High Retro SE",
@@ -97,7 +97,7 @@ export const products = [
         gender: "men",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe3.jfif")}`,
         title: "Puma",
         details: "Nike Air Force 1 '07 LV8'",
@@ -106,7 +106,7 @@ export const products = [
         gender: "men",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe1.jfif")}`,
         title: "Adidas",
         details: "Nike Air Force 1 '07 LV8'",
@@ -115,7 +115,7 @@ export const products = [
         gender: "women",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe2.jfif")}`,
         title: "Adidas",
         details: "Nike Dunk High Retro SE",
@@ -124,7 +124,7 @@ export const products = [
         gender: "kids",
     },
     {
-        id: uuid(),
+        _id: uuid(),
         img: `${require("../../assets/images/shoe3.jfif")}`,
         title: "Adidas",
         details: "Nike Air Force 1 '07 LV8'",

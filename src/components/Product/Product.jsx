@@ -75,7 +75,9 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
                     Add to Cart
                 </div>
             ) : (
-                <div className="add">Add to Cart</div>
+                <div className="add" onClick={() => navigate("/login")}>
+                    Add to Cart
+                </div>
             )}
         </div>
     );

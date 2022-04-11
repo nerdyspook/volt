@@ -18,8 +18,6 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
 
     const { stateAuth } = useAuth();
 
-    let asd = myWishlist.some((item) => item._id === id);
-
     return (
         <div className="product_card">
             <img src={image} alt={title} />

@@ -23,6 +23,13 @@
     }
 }
 
+.overlay {
+    z-index: var(--z-modal-back);
+}
+.modal {
+    z-index: var(--z-modal);
+}
+
 .main {
     position: relative;
 
@@ -112,6 +119,32 @@
         display: flex;
         align-items: center;
 
+        .filter_btn {
+            display: flex;
+            align-items: center;
+            margin-left: 0.25rem;
+
+            .filter_title {
+                background-color: var(--gray-color);
+                display: none;
+
+                @media screen and (min-width: 380px) {
+                    display: block;
+                    padding: 0.5rem;
+                }
+            }
+
+            .show_filters {
+                height: 2rem;
+                width: 2rem;
+                padding: 0.5rem;
+            }
+
+            @media screen and (min-width: 380px) {
+                margin-left: auto;
+            }
+        }
+
         select {
             height: 100%;
             padding: 0.5rem;
@@ -134,12 +167,16 @@
 
         @media screen and (min-width: 1440px) {
             margin-left: 19rem;
+
+            .filter_btn {
+                display: none;
+            }
         }
     }
 
     .content {
         position: fixed;
-        top: calc(var(--header-height) + 11rem);
+        top: calc(var(--header-height) + 9rem);
 
         padding: 0.25rem;
         margin-left: 1rem;

@@ -9,6 +9,13 @@ const CartProduct = ({ product }) => {
     const { myWishlist } = stateCart;
     const { _id, id, img, title, details, price, qty } = product;
 
+    const checkWIshlist = (id) => {
+        if (myWishlist.find((item) => item._id === id)) {
+            return true;
+        }
+        return false;
+    };
+
     return (
         <div className="card-cart" key={id}>
             <img src={img} alt={title} />
@@ -44,23 +51,28 @@ const CartProduct = ({ product }) => {
                 <div className="order__actions">
                     <button
                         className="btn"
-                        onClick={
-                            myWishlist.length === 0
-                                ? () => addWishlist(product, dispatchCart)
-                                : () => {
-                                      if (
-                                          myWishlist.find(
-                                              (item) => item._id === _id
-                                          )
-                                      ) {
-                                          alert("Already in Wishlist");
-                                      } else {
-                                          addWishlist(product, dispatchCart);
-                                      }
-                                  }
-                        }
+                        // onClick={
+                        //     myWishlist.length === 0
+                        //         ? () => addWishlist(product, dispatchCart)
+                        //         : () => {
+                        //               if (
+                        //                   myWishlist.find(
+                        //                       (item) => item._id === _id
+                        //                   )
+                        //               ) {
+                        //                   alert("Already in Wishlist");
+                        //               } else {
+                        //                   addWishlist(product, dispatchCart);
+                        //               }
+                        //           }
+                        // }
+
+                        onClick={() => {
+                            addWishlist(product, dispatchCart);
+                            removeCart(_id, dispatchCart);
+                        }}
                     >
-                        Move to Favourites
+                        Move to wishlist
                     </button>
                     <button
                         className="btn"

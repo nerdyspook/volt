@@ -107,6 +107,7 @@
         text-align: center;
         font-size: 0.65rem;
         padding: 0.5rem 0;
+        cursor: pointer;
 
         @media screen and (min-width: 425px) {
             font-size: var(--h3-font-size);

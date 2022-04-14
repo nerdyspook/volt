@@ -107,6 +107,7 @@
                     .forgot {
                         font-size: var(--small-font-size);
                     }
+
                     label,
                     input {
                         margin: 0;
@@ -145,6 +146,27 @@
                 a {
                     color: var(--secondary-color);
                 }
+
+                .input__container {
+                    position: relative;
+
+                    input[type="password"]::-ms-reveal,
+                    input[type="password"]::-ms-clear {
+                        display: none;
+                    }
+
+                    .password-eye {
+                        position: absolute;
+                        top: 1.75rem;
+                        right: 0.5rem;
+                        font-size: var(--h1-font-size);
+                        cursor: pointer;
+
+                        @media screen and(min-width:968px) {
+                            font-size: var(--h2-font-size);
+                        }
+                    }
+                }
             }
 
             label {
@@ -154,6 +176,12 @@
             }
         }
     }
+}
+
+.password-eye {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 @media screen and (min-width: 768px) {

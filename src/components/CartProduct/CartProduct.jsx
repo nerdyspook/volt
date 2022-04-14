@@ -6,7 +6,6 @@ import { removeCart } from "../../utilities/remove-cart";
 
 const CartProduct = ({ product }) => {
     const { stateCart, dispatchCart } = useCart();
-    const { myWishlist } = stateCart;
     const { _id, id, img, title, details, price, qty } = product;
 
     return (
@@ -44,23 +43,12 @@ const CartProduct = ({ product }) => {
                 <div className="order__actions">
                     <button
                         className="btn"
-                        onClick={
-                            myWishlist.length === 0
-                                ? () => addWishlist(product, dispatchCart)
-                                : () => {
-                                      if (
-                                          myWishlist.find(
-                                              (item) => item._id === _id
-                                          )
-                                      ) {
-                                          alert("Already in Wishlist");
-                                      } else {
-                                          addWishlist(product, dispatchCart);
-                                      }
-                                  }
-                        }
+                        onClick={() => {
+                            addWishlist(product, dispatchCart);
+                            removeCart(_id, dispatchCart);
+                        }}
                     >
-                        Move to Favourites
+                        Move to wishlist
                     </button>
                     <button
                         className="btn"

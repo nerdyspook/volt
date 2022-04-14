@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { addWishlist } from "../../utilities/add-wishlist";
 import { removeWishlist } from "../../utilities/remove-wishlist";
 import { addCart } from "../../utilities/add-cart";
-import { quantityCart } from "../../utilities/quantity-cart";
 
 const Product = ({ product, id, title, image, details, rating, price }) => {
     const navigate = useNavigate();
@@ -20,22 +19,31 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
 
     const { stateAuth } = useAuth();
 
+    const checkItem = (id) => {
+        if (myCart.find((item) => item._id === id)) {
+            return true;
+        }
+        return false;
+    };
+
+    const checkWishlist = (id) => {
+        if (myWishlist.find((item) => item._id === id)) {
+            return true;
+        }
+        return false;
+    };
+
     return (
         <div className="product_card">
             <img src={image} alt={title} />
             {stateAuth.isAuth ? (
                 <FaHeart
                     id="wish"
-                    className={`wish ${
-                        myWishlist.find((item) => item._id === id) && `added`
-                    }`}
-                    onClick={
-                        myWishlist.length === 0
-                            ? () => addWishlist(product, dispatchCart)
-                            : () =>
-                                  myWishlist.find((item) => item._id === id)
-                                      ? removeWishlist(id, dispatchCart)
-                                      : addWishlist(product, dispatchCart)
+                    className={`wish ${checkWishlist(id) && `added`}`}
+                    onClick={() =>
+                        checkWishlist(id)
+                            ? removeWishlist(id, dispatchCart)
+                            : addWishlist(product, dispatchCart)
                     }
                 />
             ) : (
@@ -57,25 +65,35 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
             </div>
 
             {stateAuth.isAuth ? (
+                checkItem(id) ? (
+                    <div className="add" onClick={() => navigate("/cart")}>
+                        Go to cart
+                    </div>
+                ) : checkWishlist(id) ? (
+                    <div
+                        className="add"
+                        onClick={() => {
+                            addCart(product, dispatchCart);
+                            removeWishlist(id, dispatchCart);
+                        }}
+                    >
+                        Add to Cart
+                    </div>
+                ) : (
+                    <div
+                        className="add"
+                        onClick={() => addCart(product, dispatchCart)}
+                    >
+                        Add to Cart
+                    </div>
+                )
+            ) : (
                 <div
                     className="add"
-                    onClick={
-                        myCart.length === 0
-                            ? () => addCart(product, dispatchCart)
-                            : () =>
-                                  myCart.find((item) => item._id === id)
-                                      ? quantityCart(
-                                            id,
-                                            dispatchCart,
-                                            "increment"
-                                        )
-                                      : addCart(product, dispatchCart)
-                    }
+                    onClick={() => {
+                        navigate("/login");
+                    }}
                 >
-                    Add to Cart
-                </div>
-            ) : (
-                <div className="add" onClick={() => navigate("/login")}>
                     Add to Cart
                 </div>
             )}

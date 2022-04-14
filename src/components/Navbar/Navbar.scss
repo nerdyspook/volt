@@ -20,6 +20,17 @@
     }
 
     .nav_btns {
+        display: flex;
+        .badge {
+            margin: 0;
+
+            .rounded {
+                right: 0;
+                height: 1.25rem;
+                width: 1.25rem;
+            }
+        }
+
         .icons {
             color: var(--dark-color);
             cursor: pointer;
@@ -45,11 +56,27 @@
     }
 
     .nav_btns {
+        display: flex;
+
+        .badge {
+            margin: 0;
+
+            .rounded {
+                right: 0;
+                height: 1.25rem;
+                width: 1.25rem;
+            }
+        }
+
         .icons {
             margin: 0 var(--sp-0-75);
             color: var(--white-color);
             font-size: var(--h2-font-size);
             cursor: pointer;
+        }
+
+        .logout_icon {
+            margin-right: 0;
         }
     }
 }

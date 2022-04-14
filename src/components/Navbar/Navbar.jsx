@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
+import { useCart } from "../../contexts/CartContext";
 import {
     FaSearch,
     FaUser,
@@ -8,6 +10,7 @@ import {
     FaBars,
     FaTimes,
 } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 import { useScrollToChangeColor } from "../../hooks/scroll-to-change";
 import "./Navbar.scss";
 
@@ -17,6 +20,19 @@ const Navbar = () => {
 
     const [navItemColor, setNavItemColor] = useState("#f8fafc");
     const location = useLocation();
+
+    const navigate = useNavigate();
+
+    const { stateAuth, dispatchAuth } = useAuth();
+    const {
+        stateCart: { myWishlist, myCart },
+    } = useCart();
+
+    const handleLogout = () => {
+        dispatchAuth({ type: "USER_LOGOUT" });
+        localStorage.removeItem("token");
+        navigate("/login");
+    };
 
     useEffect(() => {
         if (window.location.pathname !== "/") {
@@ -81,18 +97,61 @@ const Navbar = () => {
                             style={{ color: navItemColor }}
                         />
                     </NavLink>
-                    <NavLink to={"/wishlist"}>
-                        <FaHeart
-                            className="heart icons"
+                    {stateAuth.isAuth ? (
+                        <NavLink to={"/wishlist"} className="badge">
+                            <FaHeart
+                                className="heart icons"
+                                style={{ color: navItemColor }}
+                            />
+                            {myWishlist.length !== 0 ? (
+                                <div className="number rounded top-right">
+                                    {myWishlist.length}
+                                </div>
+                            ) : (
+                                <></>
+                            )}
+                        </NavLink>
+                    ) : (
+                        <NavLink to={"/login"} className="badge">
+                            <FaHeart
+                                className="heart icons"
+                                style={{ color: navItemColor }}
+                            />
+                        </NavLink>
+                    )}
+
+                    {stateAuth.isAuth ? (
+                        <NavLink to={"/cart"} className="badge">
+                            <FaShoppingCart
+                                className="nav_cart icons"
+                                style={{ color: navItemColor }}
+                            />
+                            {myCart.length !== 0 ? (
+                                <div className="number rounded top-right">
+                                    {myCart.length}
+                                </div>
+                            ) : (
+                                <></>
+                            )}
+                        </NavLink>
+                    ) : (
+                        <NavLink to={"/login"} className="badge">
+                            <FaShoppingCart
+                                className="nav_cart icons"
+                                style={{ color: navItemColor }}
+                            />
+                        </NavLink>
+                    )}
+
+                    {stateAuth.isAuth ? (
+                        <FiLogOut
+                            className="logout_icon icons"
                             style={{ color: navItemColor }}
+                            onClick={handleLogout}
                         />
-                    </NavLink>
-                    <NavLink to={"/cart"}>
-                        <FaShoppingCart
-                            className="nav_cart icons"
-                            style={{ color: navItemColor }}
-                        />
-                    </NavLink>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
         </header>

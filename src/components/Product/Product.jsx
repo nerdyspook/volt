@@ -26,7 +26,7 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
         return false;
     };
 
-    const checkWIshlist = (id) => {
+    const checkWishlist = (id) => {
         if (myWishlist.find((item) => item._id === id)) {
             return true;
         }
@@ -39,9 +39,9 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
             {stateAuth.isAuth ? (
                 <FaHeart
                     id="wish"
-                    className={`wish ${checkWIshlist(id) && `added`}`}
+                    className={`wish ${checkWishlist(id) && `added`}`}
                     onClick={() =>
-                        checkWIshlist(id)
+                        checkWishlist(id)
                             ? removeWishlist(id, dispatchCart)
                             : addWishlist(product, dispatchCart)
                     }
@@ -69,7 +69,7 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
                     <div className="add" onClick={() => navigate("/cart")}>
                         Go to cart
                     </div>
-                ) : checkWIshlist(id) ? (
+                ) : checkWishlist(id) ? (
                     <div
                         className="add"
                         onClick={() => {

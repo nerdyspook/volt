@@ -2,12 +2,11 @@ import React, { useEffect, useState, useReducer } from "react";
 
 import { useFilter } from "../../contexts/FilterContext";
 import { getFilteredProducts } from "../../utilities/filter";
-import { ProductReducer } from "../../Reducers/ProductReducer";
 import { loadProducts } from "../../utilities/load-products";
-
-import { BsSliders } from "react-icons/bs";
+import { useProduct } from "../../contexts/ProductContext";
 import Product from "../../components/Product/Product";
 import Filter from "../../components/Filter/Filter";
+import { BsSliders } from "react-icons/bs";
 import "./Products.scss";
 
 const Products = () => {
@@ -18,11 +17,7 @@ const Products = () => {
     const { gender, rating, brands } = state;
     const { nike, adidas, puma, vans } = brands;
 
-    const [stateProduct, dispatchProduct] = useReducer(ProductReducer, {
-        loading: false,
-        products: [],
-    });
-
+    const { stateProduct, dispatchProduct } = useProduct();
     const { loading, products } = stateProduct;
 
     const filteredProducts = getFilteredProducts(products, state);

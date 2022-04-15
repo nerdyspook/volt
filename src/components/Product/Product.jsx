@@ -54,12 +54,17 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
                 />
             )}
 
-            <div className="product_details">
+            <div
+                className="product_details"
+                onClick={() => {
+                    navigate(`/products/${id}`);
+                }}
+            >
                 <p className="title">{title}</p>
                 <p className="details">{details}</p>
                 <div className="rating">
                     {rating}
-                    <sup>⭐</sup>
+                    <span className="stars">&#9733;</span>
                 </div>
                 <p className="price">₹ {price}</p>
             </div>

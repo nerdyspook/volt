@@ -1,4 +1,5 @@
 import axios from "axios";
+import { notifyLoginError, notifySignupSuccess } from "./notifications";
 
 export const addNewUser = async (
     firstName,
@@ -20,9 +21,11 @@ export const addNewUser = async (
                 payload: response.data.createdUser,
             });
             localStorage.setItem("token", response.data.encodedToken);
+            notifySignupSuccess();
             navigate("/products");
         }
     } catch (e) {
+        notifyLoginError();
         console.log("Error: ", e);
     }
 };

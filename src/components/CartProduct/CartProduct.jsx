@@ -52,7 +52,9 @@ const CartProduct = ({ product }) => {
                     </button>
                     <button
                         className="btn"
-                        onClick={() => removeCart(_id, dispatchCart)}
+                        onClick={() => {
+                            removeCart(_id, dispatchCart);
+                        }}
                     >
                         Remove
                     </button>

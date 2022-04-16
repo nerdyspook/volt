@@ -1,6 +1,9 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
+
 import "./Product.scss";
+
+import { notifyRequestLogin } from "../../utilities/notifications";
 
 import { useAuth } from "../../contexts/AuthContext";
 import { useCart } from "../../contexts/CartContext";
@@ -40,17 +43,22 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
                 <FaHeart
                     id="wish"
                     className={`wish ${checkWishlist(id) && `added`}`}
-                    onClick={() =>
-                        checkWishlist(id)
-                            ? removeWishlist(id, dispatchCart)
-                            : addWishlist(product, dispatchCart)
-                    }
+                    onClick={() => {
+                        if (checkWishlist(id)) {
+                            removeWishlist(id, dispatchCart);
+                        } else {
+                            addWishlist(product, dispatchCart);
+                        }
+                    }}
                 />
             ) : (
                 <FaHeart
                     className="wish"
                     id="wish"
-                    onClick={() => navigate("/login")}
+                    onClick={() => {
+                        notifyRequestLogin();
+                        navigate("/login");
+                    }}
                 />
             )}
 
@@ -78,8 +86,8 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
                     <div
                         className="add"
                         onClick={() => {
-                            addCart(product, dispatchCart);
                             removeWishlist(id, dispatchCart);
+                            addCart(product, dispatchCart);
                         }}
                     >
                         Add to Cart
@@ -87,7 +95,9 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
                 ) : (
                     <div
                         className="add"
-                        onClick={() => addCart(product, dispatchCart)}
+                        onClick={() => {
+                            addCart(product, dispatchCart);
+                        }}
                     >
                         Add to Cart
                     </div>
@@ -96,6 +106,7 @@ const Product = ({ product, id, title, image, details, rating, price }) => {
                 <div
                     className="add"
                     onClick={() => {
+                        notifyRequestLogin();
                         navigate("/login");
                     }}
                 >

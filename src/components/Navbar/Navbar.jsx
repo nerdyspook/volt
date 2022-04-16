@@ -60,7 +60,7 @@ const Navbar = () => {
             <div className="navbar container">
                 <div className="left">
                     <FaBars
-                        className="nav__toggle icons"
+                        className="nav-toggle icons"
                         id="nav-toggle"
                         onClick={showMenu}
                         style={{ color: navItemColor }}

@@ -9,6 +9,7 @@ const FilterProvider = ({ children }) => {
         gender: "",
         rating: 1,
         brands: { nike: false, adidas: false, puma: false, vans: false },
+        searchTerm: "",
     });
 
     return (

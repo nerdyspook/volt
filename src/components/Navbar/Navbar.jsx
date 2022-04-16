@@ -13,6 +13,7 @@ import {
 import { FiLogOut } from "react-icons/fi";
 import { useScrollToChangeColor } from "../../hooks/scroll-to-change";
 import "./Navbar.scss";
+import { useFilter } from "../../contexts/FilterContext";
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
@@ -21,8 +22,11 @@ const Navbar = () => {
     const [navItemColor, setNavItemColor] = useState("#f8fafc");
     const location = useLocation();
 
+    const [searchTerm, setSearchTerm] = useState("");
+
     const navigate = useNavigate();
 
+    const { dispatch } = useFilter();
     const { stateAuth, dispatchAuth } = useAuth();
     const {
         stateCart: { myWishlist, myCart },
@@ -32,6 +36,13 @@ const Navbar = () => {
         dispatchAuth({ type: "USER_LOGOUT" });
         localStorage.removeItem("token");
         navigate("/login");
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch({ type: "SEARCH_TERM", payload: searchTerm });
+        setSearchTerm("");
+        navigate("/products");
     };
 
     useEffect(() => {
@@ -49,7 +60,7 @@ const Navbar = () => {
             <div className="navbar container">
                 <div className="left">
                     <FaBars
-                        className="nav__toggle icons"
+                        className="nav-toggle icons"
                         id="nav-toggle"
                         onClick={showMenu}
                         style={{ color: navItemColor }}
@@ -76,10 +87,23 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <div className="search_container">
-                                <input placeholder="Search here" type="text" />
-                                <FaSearch className="search__icon" />
-                            </div>
+                            <form
+                                className="search_container"
+                                onSubmit={handleSubmit}
+                            >
+                                <input
+                                    placeholder="Search here"
+                                    type="text"
+                                    value={searchTerm}
+                                    onChange={(e) =>
+                                        setSearchTerm(e.target.value)
+                                    }
+                                />
+                                <FaSearch
+                                    className="search__icon"
+                                    onClick={handleSubmit}
+                                />
+                            </form>
                         </li>
                     </ul>
 

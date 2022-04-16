@@ -14,7 +14,7 @@
     -webkit-box-shadow: var(--header-box-shadow);
     -moz-box-shadow: var(--header-box-shadow);
 
-    .navbar .nav__toggle,
+    .navbar .nav-toggle,
     .nav__logo {
         color: var(--dark-color);
     }
@@ -48,7 +48,7 @@
     align-items: center;
     justify-content: space-between;
 
-    .nav__toggle {
+    .nav-toggle {
         margin-right: var(--sp-1);
         color: var(--white-color);
         font-size: var(--h1-font-size);
@@ -173,7 +173,7 @@ nav.open {
 
 @media screen and (min-width: 920px) {
     .navbar {
-        .nav__toggle {
+        .nav-toggle {
             display: none;
         }
 
@@ -205,14 +205,16 @@ nav.open {
             }
 
             .search_container {
-                max-width: 20rem;
+                max-width: 12.5rem;
                 width: 100%;
                 margin-left: auto;
+                transform: translateX(-0.5rem);
             }
 
             .nav__link {
                 position: relative;
                 color: var(--text-color);
+                transform: translateX(-2rem);
 
                 &:hover {
                     background-color: transparent;
@@ -254,8 +256,11 @@ nav.open {
 
     nav {
         .nav_menu {
+            .nav__link {
+                transform: translateX(-2rem);
+            }
             .search_container {
-                margin-left: 3rem;
+                transform: translateX(2rem);
             }
         }
     }
@@ -265,7 +270,9 @@ nav.open {
     nav {
         .nav_menu {
             .search_container {
-                margin-left: 15rem;
+                max-width: 16rem;
+                width: 100%;
+                transform: translateX(5rem);
             }
         }
     }
@@ -275,7 +282,7 @@ nav.open {
     nav {
         .nav_menu {
             .search_container {
-                margin-left: 18rem;
+                transform: translateX(10rem);
             }
         }
     }
@@ -285,7 +292,7 @@ nav.open {
     nav {
         .nav_menu {
             .search_container {
-                margin-left: 0;
+                transform: translateX(18rem);
             }
         }
     }

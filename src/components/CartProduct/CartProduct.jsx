@@ -10,7 +10,7 @@ const CartProduct = ({ product }) => {
 
     return (
         <div className="card-cart" key={id}>
-            <img src={img} alt={title} />
+            <img src={img} alt={title} className="cart-image" />
             <div className="card-details">
                 <div className="heading">
                     <h4>

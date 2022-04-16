@@ -105,7 +105,6 @@ const Login = () => {
 
                         <div
                             className="btn login__btn"
-                            // type="submit"
                             onClick={() => {
                                 email && password
                                     ? !EMAIL_REGEX.test(email)
@@ -118,7 +117,6 @@ const Login = () => {
                                           )
                                     : alert("Please fill all the fields");
                             }}
-                            // onClick={() => console.log(userDetail)}
                         >
                             Log In
                         </div>

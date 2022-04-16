@@ -2,12 +2,15 @@ import { getProductsForGender } from "../utilities/gender";
 import { getRatedProducts } from "../utilities/rating";
 import { getBrandedProducts } from "../utilities/brand";
 import { getSortedProducts } from "../utilities/sort";
+import { getSearchProducts } from "./search-products";
 
 export const getFilteredProducts = (products, state) => {
-    const { sortBy, gender, rating, brands } = state;
+    const { sortBy, gender, rating, brands, searchTerm } = state;
     const { nike, adidas, puma, vans } = brands;
 
-    const productsForGender = getProductsForGender(products, gender);
+    const searchedProducts = getSearchProducts(products, searchTerm);
+
+    const productsForGender = getProductsForGender(searchedProducts, gender);
 
     const ratedProducts = getRatedProducts(productsForGender, rating);
 

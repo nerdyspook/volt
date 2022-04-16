@@ -1,5 +1,7 @@
 export const filterReducer = (state, action) => {
     switch (action.type) {
+        case "SEARCH_TERM":
+            return { ...state, searchTerm: action.payload };
         case "LOW_TO_HIGH":
             return { ...state, sortBy: action.type };
         case "HIGH_TO_LOW":
@@ -59,6 +61,7 @@ export const filterReducer = (state, action) => {
                     puma: false,
                     vans: false,
                 },
+                searchTerm: "",
             };
 
         default:

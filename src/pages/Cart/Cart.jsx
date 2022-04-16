@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import CartProduct from "../../components/CartProduct/CartProduct";
 import { useCart } from "../../contexts/CartContext";
@@ -12,6 +12,8 @@ const Cart = () => {
         (acc, curr) => (acc += curr.price * curr.qty),
         0
     );
+
+    const [discount, setDiscount] = useState(0);
 
     const finalQuantity = myCart.reduce((acc, curr) => (acc += curr.qty), 0);
 
@@ -27,7 +29,7 @@ const Cart = () => {
 
             <section className="order__summary">
                 <div className="title">
-                    Order Summary {`(${finalQuantity} items)`}
+                    Order Summary <br /> {`(${finalQuantity} items)`}
                 </div>
 
                 <ul className="summary">
@@ -35,7 +37,8 @@ const Cart = () => {
                         Subtotal <span>₹ {finalPrice}</span>
                     </li>
                     <li>
-                        Discount <span className="discount">-₹1000</span>
+                        Discount{" "}
+                        <span className="discount">- ₹ {discount}</span>
                     </li>
                     <li>
                         Delivery Charges <span className="charges">FREE</span>
@@ -43,7 +46,7 @@ const Cart = () => {
                 </ul>
 
                 <div className="total__price">
-                    Total Amount <span>₹ {finalPrice - 1000}</span>
+                    Total Amount <span>₹ {finalPrice - discount}</span>
                 </div>
 
                 <div className="checkout">Checkout</div>

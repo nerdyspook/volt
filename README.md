@@ -1,7 +1,7 @@
 #### (Volt | Shoe Store)
 
 <div align="center">
-  <img src="public/icon.png" width="150" title="Volt Shoe Store Logo">
+  <img src="./public/icon.png" width="150" title="Volt Shoe Store Logo">
 
 ## [Volt | Shoe Store](https://volt-shoes.netlify.app/)
 
@@ -91,4 +91,12 @@ Start the server
 
 ## Demo
 
-![Volt Store Demo]()
+<figure class="video_container">
+  <iframe src="https://www.loom.com/share/b2f0ce8e969c41e3946249f65a3e7278" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true" poster="path/to/poster_image.png">
+    <source src="./src/assets/video/volt-demo.mp4" type="video/mp4">
+  </video>
+</figure>

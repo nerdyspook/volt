@@ -14,6 +14,15 @@ export const addCart = async (product, dispatchCart) => {
         });
 
         if (response.status === 201) {
+            /**
+             * Feature to be added: change local storage wishlist as per response
+             *
+             * const userDetails = JSON.parse(localStorage.getItem("user"));
+             * userDetails.cart = response.data.cart;
+             * localStorage.setItem("user", JSON.stringify(userDetails));
+             *
+             */
+
             notifyAddCart();
             dispatchCart({ type: "ADD_TO_CART", payload: response.data.cart });
         }

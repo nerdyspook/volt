@@ -30,11 +30,14 @@ const Navbar = () => {
     const { stateAuth, dispatchAuth } = useAuth();
     const {
         stateCart: { myWishlist, myCart },
+        dispatchCart,
     } = useCart();
 
     const handleLogout = () => {
         dispatchAuth({ type: "USER_LOGOUT" });
+        dispatchCart({ type: "DROP_EVERYTHING" });
         localStorage.removeItem("token");
+        localStorage.removeItem("user");
         navigate("/login");
     };
 
@@ -115,12 +118,22 @@ const Navbar = () => {
                 </nav>
 
                 <div className="nav_btns">
-                    <NavLink to={"/login"}>
-                        <FaUser
-                            className="user icons"
-                            style={{ color: navItemColor }}
-                        />
-                    </NavLink>
+                    {stateAuth.isAuth ? (
+                        <NavLink to={"/user"}>
+                            <FaUser
+                                className="user icons"
+                                style={{ color: navItemColor }}
+                            />
+                        </NavLink>
+                    ) : (
+                        <NavLink to={"/login"}>
+                            <FaUser
+                                className="user icons"
+                                style={{ color: navItemColor }}
+                            />
+                        </NavLink>
+                    )}
+
                     {stateAuth.isAuth ? (
                         <NavLink to={"/wishlist"} className="badge">
                             <FaHeart

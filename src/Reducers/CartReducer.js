@@ -15,6 +15,9 @@ export const cartReducer = (stateCart, actionCart) => {
                 myCart: actionCart.payload,
             };
 
+        case "DROP_EVERYTHING":
+            return { ...stateCart, myWishlist: [], myCart: [] };
+
         default:
             return stateCart;
     }

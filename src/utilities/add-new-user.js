@@ -21,6 +21,10 @@ export const addNewUser = async (
                 payload: response.data.createdUser,
             });
             localStorage.setItem("token", response.data.encodedToken);
+            localStorage.setItem(
+                "user",
+                JSON.stringify(response.data.createdUser)
+            );
             notifySignupSuccess();
             navigate("/products");
         }

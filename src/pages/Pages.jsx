@@ -8,6 +8,7 @@ import Login from "./Auth/Login";
 import Signup from "./Auth/Signup";
 import ProductDetail from "../components/ProductDetail/ProductDetail";
 import Error from "./Error/Error";
+import User from "./User/User";
 
 const Pages = () => {
     return (
@@ -20,6 +21,7 @@ const Pages = () => {
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/user" element={<User />} />
             <Route path="*" element={<Error />} />
         </Routes>
     );

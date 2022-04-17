@@ -12,6 +12,15 @@ const CartProvider = ({ children }) => {
     }, []);
 
     const [stateCart, dispatchCart] = useReducer(cartReducer, {
+        /**
+         * Feature to be added: set initial data from local storage
+         *
+         * const userDetails = JSON.parse(localStorage.getItem("user"));
+         * myWishlist: userDetails.wishlist.length ? userDetails.wishlist : [],
+         * myCart: userDetails.cart.length ? userDetails.cart : [],
+         *
+         * */
+
         myWishlist: [],
         myCart: [],
         quantity: 0,

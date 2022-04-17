@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+#### (Volt | Shoe Store)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <img src="public/icon.png" width="150" title="Volt Shoe Store Logo">
 
-## Available Scripts
+## [Volt | Shoe Store](https://volt-shoes.netlify.app/)
 
-In the project directory, you can run:
+E-commerce application for Shoes
 
-### `yarn start`
+![Forks](https://img.shields.io/github/forks/nerdyspook/volt)
+![Stars](https://img.shields.io/github/stars/nerdyspook/volt)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `yarn test`
+## Quick Start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Preview Link : https://volt-shoes.netlify.app
 
-### `yarn build`
+## Run Locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone the project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  git clone https://github.com/nerdyspook/volt.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Go to the project directory
 
-### `yarn eject`
+```bash
+  cd volt
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Install dependencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  yarn install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Start the server
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+  yarn start
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Pages Included
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-   Home Page
+-   Product Listing Page
+-   Single Product Page
+-   Wishlist Page
+-   Cart Page
+-   Login Page
+-   Signup Page
+-   User Profile Page
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Functionalities
 
-### Analyzing the Bundle Size
+-   Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    -   Users can sign-up in the app
+    -   Users can log in the app
+    -   Users can logout from the app
 
-### Making a Progressive Web App
+-   Cart Management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    -   Users can add products to the cart
+    -   Users can increase & decrease the quantity of a product
+    -   Users can remove the product from the cart
+    -   Users can add products to wishlist from the cart
 
-### Advanced Configuration
+-   Wishlist Management
+    -   Users can add or remove products in wishlist
+    -   Users can move items from wishlist to cart
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+-   [React JS](https://reactjs.org/)
+-   [React Router v6](https://reactrouter.com/)
+-   [Kal-UI Component Library](https://kal-ui.netlify.app/)
+-   [SASS](https://sass-lang.com/)
 
-### `yarn build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Demo
+
+![Volt Store Demo]()

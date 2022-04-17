@@ -1,4 +1,5 @@
 import axios from "axios";
+import { notifyRemoveWishlist } from "./notifications";
 
 export const removeWishlist = async (id, dispatchCart) => {
     const token = localStorage.getItem("token");
@@ -12,6 +13,7 @@ export const removeWishlist = async (id, dispatchCart) => {
             },
         });
         if (response.status === 200) {
+            notifyRemoveWishlist();
             dispatchCart({
                 type: "ADD_TO_WISHLIST",
                 payload: response.data.wishlist,

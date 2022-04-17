@@ -1,4 +1,5 @@
 import axios from "axios";
+import { notifyAddCart, notifyCartError } from "./notifications";
 
 export const addCart = async (product, dispatchCart) => {
     const newToken = localStorage.getItem("token");
@@ -13,9 +14,11 @@ export const addCart = async (product, dispatchCart) => {
         });
 
         if (response.status === 201) {
+            notifyAddCart();
             dispatchCart({ type: "ADD_TO_CART", payload: response.data.cart });
         }
     } catch (e) {
+        notifyCartError();
         console.log("Error: ", e);
     }
 };

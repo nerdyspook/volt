@@ -8,6 +8,7 @@ import Product from "../../components/Product/Product";
 import Filter from "../../components/Filter/Filter";
 import { BsSliders } from "react-icons/bs";
 import "./Products.scss";
+import { Loader } from "../../components/Loader/Loader";
 
 const Products = () => {
     const [selectedSort, setSelectedSort] = useState("Select an option");
@@ -202,21 +203,26 @@ const Products = () => {
                             <BsSliders className="show_filters" />
                         </div>
                     </section>
-
-                    <section className="content">
-                        {filteredProducts.map((product) => (
-                            <Product
-                                product={product}
-                                key={product._id}
-                                id={product._id}
-                                title={product.title}
-                                image={product.img}
-                                details={product.details}
-                                rating={product.rating}
-                                price={product.price}
-                            />
-                        ))}
-                    </section>
+                    {!loading ? (
+                        <section className="content">
+                            {filteredProducts.map((product) => (
+                                <Product
+                                    product={product}
+                                    key={product._id}
+                                    id={product._id}
+                                    title={product.title}
+                                    image={product.img}
+                                    details={product.details}
+                                    rating={product.rating}
+                                    price={product.price}
+                                />
+                            ))}
+                        </section>
+                    ) : (
+                        <section className="content">
+                            <Loader className="loader" />
+                        </section>
+                    )}
                 </main>
             </div>
 

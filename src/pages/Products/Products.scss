@@ -190,6 +190,12 @@
         align-content: flex-start;
         gap: 1rem;
 
+        .loader {
+            position: absolute;
+            top: 5rem;
+            left: 35%;
+        }
+
         @media screen and (min-width: 425px) {
             gap: 1.5rem;
         }

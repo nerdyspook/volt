@@ -1,4 +1,5 @@
 import axios from "axios";
+import { notifyLoginError, notifyLoginSuccess } from "./notifications";
 
 export const loginUser = async (email, password, dispatchAuth, navigate) => {
     try {
@@ -13,9 +14,11 @@ export const loginUser = async (email, password, dispatchAuth, navigate) => {
                 payload: response.data.createdUser,
             });
             localStorage.setItem("token", response.data.encodedToken);
+            notifyLoginSuccess();
             navigate("/products");
         }
     } catch (e) {
+        notifyLoginError();
         console.log("Error: ", e);
     }
 };
